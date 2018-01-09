@@ -1,0 +1,21 @@
+﻿<Window x:Class="TestApp.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestApp.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button Content="Update time" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox Name="ActualDate" HorizontalAlignment="Left" Height="23" Margin="194,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275"/>
+        <Button Content="Change guid" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <TextBox Name="RandomGuid" HorizontalAlignment="Left" Height="23" Margin="194,142,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275"/>
+        <Button Content="Update subst" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <TextBox Name="SubStateMessage" HorizontalAlignment="Left" Height="23" Margin="194,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275"/>
+        <Button Content="Subst time" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        <TextBox Name="SubStateTime" HorizontalAlignment="Left" Height="23" Margin="194,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275"/>
+        <Button Content="Update all" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+
+    </Grid>
+</Window>
