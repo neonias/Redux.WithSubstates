@@ -26,7 +26,7 @@ We provide simple (yet descriptive) examples of how to use this library.
 - Allows to subscribe to state changes
 - Allows to dispatch *Actions*
 
-*Store* is a generic implementation of *IStore\<TState\>* interface. This generalization allows to use any object
+*Store* is a generic implementation of ```IStore<TState>``` interface. This generalization allows to use any object
 of any type as the application state. An example of instantiation of Store is (Reducers and Effects are introduced below):
 ```c#
 IStore<string> reduxStore = new Store<string>("initial state", reducer, effects);
@@ -38,7 +38,7 @@ It should be only used in Reducer and Effects.
 
 #### Dispatch an action
 Makes the store to execute Reducer's and all Effects' methods that handle actions of typeof(action).
-An example of dispatching an actoin on a store:
+An example of dispatching an actoin on a Store:
 ```c#
 IStore<string> store = ...
 ...
@@ -56,9 +56,11 @@ Example of substate selection:
 class CompositeState
 {
     public string Name { get; set; }
-    
+    public string LastName { get; set; }
+}
 
-IStore<CompositeState> store = new Store ...
+
+IStore<CompositeState> store = new Store(new CompositeState(), reducer, effects);
 
 // returns IStore<string>, because compositeState.Name is a string
 IStore<string> nameSubStore = store.Select(compositeState => compositeState.Name);
@@ -76,8 +78,7 @@ class CompositeState
 }
 ... 
 
-IStore<CompositeState> store = new Store...
-...
+IStore<CompositeState> store = new Store(new CompositeState(), reducer, effects);
 
 store.Subscribe(newState =>
 {
@@ -97,8 +98,7 @@ class CompositeState
 }
 ... 
 
-IStore<CompositeState> store = new Store...
-...
+IStore<CompositeState> store = new Store(new CompositeState(), reducer, effects);
 
 store.Select(state => state.Name).Subscribe(newName =>
 {
