@@ -5,7 +5,7 @@
     /// If the effect does not require any subsequent action,
     /// this type should be returned.
     /// </summary>
-    public class NullAction : IAction
+    public sealed class NullAction : IAction
     {
         static NullAction()
         {

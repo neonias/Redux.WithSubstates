@@ -27,6 +27,11 @@ namespace Redux.WithSubstates
             State = initialState;
         }
 
+        public Store(TState initialState, IReducer<TState> reducer)
+            : this(initialState, reducer, new List<IEffect<TState>>())
+        {
+        }
+
         public TState State
         {
             get => _state;
@@ -98,9 +103,9 @@ namespace Redux.WithSubstates
         }
 
         private IEnumerable<IEffect<TState>> SequentialEffects =>
-            _effects.Where(_ => typeof(ISequentialEffect<TState>).IsAssignableFrom(_.GetType()));
+            _effects.Where(_ => typeof(ISequentialEffectClass<TState>).IsAssignableFrom(_.GetType()));
 
         private IEnumerable<IEffect<TState>> NonSequentialEffects =>
-            _effects.Where(_ => !typeof(ISequentialEffect<TState>).IsAssignableFrom(_.GetType()));
+            _effects.Where(_ => !typeof(ISequentialEffectClass<TState>).IsAssignableFrom(_.GetType()));
     }
 }
