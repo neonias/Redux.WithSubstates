@@ -152,7 +152,7 @@ IStore<DaysOfWeek> daysStore = new Store<DaysOfWeek>(DaysOfWeek.Tuesday, reducer
 ```
 
 ### Action
-Actions are used to "trigger" different methods of reducers, based on the type of the action.
+Actions are used to "trigger" different methods of Reducers, based on the type of the action.
 
 It is the actions that make Redux different from other application-wide-state management techniques (such as public, static class):
 **Rather than directly changing application state, in Redux, Reducers are responsible for changing the application state.**
@@ -176,7 +176,7 @@ store.Dispatch(changeNameAction);
 Will the name, part of the state, be changed? Probably yes - it depends on Reducer.
 
 ### Reducer
-Originally, reducer is a function that takes an Action, the current state and returns a fully new instance of the 
+Originally, Reducer is a function that takes an Action, the current state and returns a fully new instance of the 
 state. How and whether at all the state will be changed, depends solely on the Reducer(s) and the type of the action.
 
 In Redux.WithSubstates, there are multiple ways how the Reducer can be defined. Basically, any class that 
@@ -224,7 +224,7 @@ logic in multiple classes. There are multiple benefits:
 - In these methods, you ask for a specific type of ```IAction```, which helps you to get rid of nasty casting
 
 So, what is the solution that Redux.WithSubstates offers? It is a **```Combine()``` extension method**, applicable
-to anything derived from ```IEnumerable<IReducerClass<T>>``` (any enumerable of reducers of the same type). Let's see an example.
+to anything derived from ```IEnumerable<IReducerClass<T>>```. Let's see an example.
 
 ```c#
 class NameReducer : IReducerClass<AppState>
@@ -325,7 +325,7 @@ class AppEffect : IEffect<AppState>
 
 After Effect finishes, the returned Action will be dispatched.
 
-Similarly to reducers, in more complex applications it becomes necessary to decompose Effects into multiple files.
+Similarly to Reducers, in more complex applications it becomes necessary to decompose Effects into multiple files.
 There is again an ```Combine()``` extension method applicable to any ```IEnumerable<IEffectClass<TState>>```.
 
 ```c#
