@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redux.WithSubstates.Tests", "Redux.WithSubstates.Tests\Redux.WithSubstates.Tests.csproj", "{C9A32099-D594-482A-BAA3-8C9E777B9E6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,18 @@ Global
 		{8C8D59C2-91BB-4392-85C8-D1A99451B173}.Release|x64.Build.0 = Release|x64
 		{8C8D59C2-91BB-4392-85C8-D1A99451B173}.Release|x86.ActiveCfg = Release|x86
 		{8C8D59C2-91BB-4392-85C8-D1A99451B173}.Release|x86.Build.0 = Release|x86
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Debug|x64.Build.0 = Debug|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Debug|x86.Build.0 = Debug|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Release|x64.ActiveCfg = Release|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Release|x64.Build.0 = Release|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Release|x86.ActiveCfg = Release|Any CPU
+		{C9A32099-D594-482A-BAA3-8C9E777B9E6A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
