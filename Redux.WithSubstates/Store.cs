@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Threading;
+using System.Threading.Tasks;
 using Redux.WithSubstates.Actions;
 using Redux.WithSubstates.DecoratingInterfaces;
 using Redux.WithSubstates.Extensions;
@@ -80,7 +83,7 @@ namespace Redux.WithSubstates
                 dispatchListener(action);
         }
 
-        private void DispatchEffects(IAction action, TState state)
+        private async void DispatchEffects(IAction action, TState state)
         {
             SequentialEffects
                 .Select(_ => _.Execute(state, action))
@@ -89,17 +92,14 @@ namespace Redux.WithSubstates
                     if (requestedAction.GetType() != typeof(NullAction))
                         Dispatch(requestedAction);
                 });
-            NonSequentialEffects
-                .Select(_ => Observable.Start(() => _.Execute(state, action)))
-                .ForEach(requestedAction =>
-                {
-                    requestedAction.Subscribe(_ =>
-                    {
-                        if (_.GetType() == typeof(NullAction))
-                            return;
-                        Dispatch(_);
-                    });
-                });
+            var tasks = NonSequentialEffects
+                .Select(_ => Task.Run(() => _.Execute(state, action)));
+            foreach (var task in tasks)
+            {
+                var requestedAction = await task;
+                if (requestedAction.GetType() != typeof(NullAction))
+                    Dispatch(requestedAction);
+            }
         }
 
         private IEnumerable<IEffect<TState>> SequentialEffects =>

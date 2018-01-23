@@ -5,6 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <AssemblyName>Redux.WithSubstates</AssemblyName>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
